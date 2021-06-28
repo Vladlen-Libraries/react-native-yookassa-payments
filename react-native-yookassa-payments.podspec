@@ -6,12 +6,12 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
                   YooKassa Payments component
                    DESC
-  s.homepage     = "https://github.com/VladlenKaveev/react-native-yookassa-payments.git"
+  s.homepage     = "https://gitlab.com/getgain-public/libs/react-native-yookassa-payments.git"
   s.license      = "MIT"
   # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "10.0"
-  s.source       = { :git => "https://github.com/VladlenKaveev/react-native-yookassa-payments.git", :tag => "dev" }
+  s.source       = { :git => "https://gitlab.com/getgain-public/libs/react-native-yookassa-payments.git", :tag => "master" }
   s.source_files  = "ios/*"
   s.requires_arc = true
 
