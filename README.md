@@ -3,7 +3,7 @@
 ###### iOS NATIVE SDK - 6.0.0
 ###### Android NATIVE SDK - 6.0.1
 
-`npm install git+https://github.com/VladlenKaveev/react-native-yookassa-payments.git#dev --save`
+`npm install git+https://gitlab.com/getgain-public/libs/react-native-yookassa-payments.git --save`
 
 ### Android installation:
 
@@ -11,9 +11,10 @@
 2.  Add folowing lines in dependencies `android/build.gradle`
 
 ```java
-
-repositories {
-    mavenCentral()
+allprojects {
+    repositories {
+        mavenCentral()
+    }
 }
 ```
 
@@ -73,3 +74,8 @@ target 'YourAppName' do
 3.  Add TMXProfiling.xcframework and TMXProfilingConnections.xcframework to Frameworks, Libraries, and Embedded Content in Xcode Project
 4.  Add Foundation.swift using Xcode in root folder (ios/Foundation.swift) and select "Сreate Bridging Header"
 5.  `pod install`
+6. (Optional) Russian Localization
+    - In your Xcode project => Info => Localization => Click "+" => Add Russian language
+    - Copy everything from ios/yookassa-payments-swift-6.0.0/YooKassaPayments/Public/Resources/ru.lproj/Localizable.strings
+    - In your Xcode project => File => New File => Strings File => Localizable.strings => Open new created Localizable.strings and paste all copy strings
+    - After pasting strings look at Xcode right side and find a Localization menu => Choose Russian language 
