@@ -26,9 +26,6 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
         guard let viewController = viewController as? TokenizationModuleInput else { return }
         confirmCallback = callback
         viewController.start3dsProcess(requestUrl: url)
-        DispatchQueue.main.async {
-           self.viewController?.dismiss(animated: true)
-        }
     }
 
     @objc
