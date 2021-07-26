@@ -4,12 +4,12 @@ import YooKassaPayments
 
 @objc(RNRYPaymentManager)
 class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
-    
+
     func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {
-        
+
     }
-    
-    
+
+
     var callback: RCTResponseSenderBlock?
     var confirmCallback: RCTResponseSenderBlock?
     var viewController: UIViewController?
@@ -26,6 +26,9 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
         guard let viewController = viewController as? TokenizationModuleInput else { return }
         confirmCallback = callback
         viewController.start3dsProcess(requestUrl: url)
+        DispatchQueue.main.async {
+           self.viewController?.dismiss(animated: true)
+        }
     }
 
     @objc
