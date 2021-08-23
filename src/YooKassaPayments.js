@@ -12,7 +12,8 @@ export default class RNRYPayment {
                 "amount": info["amount"],
                 "purchase_description": info["purchase_description"],
                 "payment_types": info["payment_types"],
-                "test": this.testMode
+                "test": this.testMode,
+                "applePayMerchantIdentifier": info["applePayMerchantIdentifier"],
             }, (token: string, type: string, error: any) => {
                 console.log(token,type,error)
                 if (!!token && !!type) {
