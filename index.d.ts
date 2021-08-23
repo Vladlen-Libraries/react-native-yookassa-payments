@@ -5,7 +5,7 @@ export interface PaymentConfig {
   shop_id: number;
   amount: number;
   purchase_description: string;
-  payment_types: PaymentType;
+  payment_types: PaymentType[];
   applePayMerchantIdentifier: string;
 }
 
