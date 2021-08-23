@@ -12,6 +12,7 @@
   "author": "Vladlen Kaveev",
   "license": "ISC",
   "devDependencies": {
+    "prettier": "^2.3.2",
     "react": "16.12.0",
     "react-native": "~0.61.4"
   },
