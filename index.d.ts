@@ -1,23 +1,8 @@
-type PaymentType = "bank_card" | "apple_pay" | "google_pay";
+import { PaymentConfig } from "./types/PaymentConfig";
+import { PaymentResult } from "./types/PaymentResult";
 
-export interface PaymentConfig {
-  shop_name: string;
-  shop_id: number;
-  amount: number;
-  purchase_description: string;
-  payment_types: PaymentType[];
-  applePayMerchantIdentifier: string;
-}
+export function pay(info: PaymentConfig): Promise<PaymentResult>;
 
-export interface PaymentInterface {
-  apiKey: string | undefined;
-  testMode: number;
-  pay: (info: PaymentConfig) => Promise<PaymentResult>;
-  confirmPayment: (url: string) => Promise<void>;
-  cancel: () => void;
-}
+export function confirmPayment(url: string): Promise<void>;
 
-export interface PaymentResult {
-  token: string;
-  type: PaymentType;
-}
+export function cancel(): void;
