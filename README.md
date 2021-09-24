@@ -62,7 +62,9 @@ target 'YourAppName' do
   config = use_native_modules!
 
   pod 'react-native-yookassa-payments', :path => '../node_modules/react-native-yookassa-payments'
-
+   
+  pod 'CardIO' 
+   
   pod 'YooKassaPayments',
       :build_type => :dynamic_framework,
       :git => 'https://github.com/yoomoney/yookassa-payments-swift.git',
