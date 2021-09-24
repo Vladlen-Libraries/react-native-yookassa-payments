@@ -1,18 +1,16 @@
 import Foundation
-
 import YooKassaPayments
 
 @objc(RNRYPaymentManager)
 class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
 
-    func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {
-
-    }
-
-
     var callback: RCTResponseSenderBlock?
     var confirmCallback: RCTResponseSenderBlock?
     var viewController: UIViewController?
+
+    func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {
+
+    }
 
     @objc(cancel)
     func dismiss() {
@@ -60,7 +58,7 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
                                               amount: amount,
                                               tokenizationSettings: tokenizationSettings,
                                               testModeSettings: (info["test"] != nil) ? testModeSettings : nil,
-                                              applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
+                                              cardScanning: CardScannerProvider(), applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
                                               savePaymentMethod: .userSelects)
         let inputData: TokenizationFlow = .tokenization(tokenizationModuleInputData)
         viewController = TokenizationAssembly.makeModule(inputData: inputData, moduleOutput: self)
