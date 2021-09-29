@@ -44,6 +44,13 @@ android {
 }
 ```
 
+6. Add this in AndroidManifest.xml for card scanning work
+
+```java
+<uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
+<uses-feature android:name="android.hardware.camera.flash" android:required="false" />
+```
+
 ### iOS installation:
 
 1.  Change Podfile like this:
