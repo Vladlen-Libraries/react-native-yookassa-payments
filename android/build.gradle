@@ -39,5 +39,6 @@ repositories {
 
 dependencies {
     implementation 'com.facebook.react:react-native:+'
+    implementation 'io.card:android-sdk:5.5.1'
     implementation 'ru.yoomoney.sdk.kassa.payments:yookassa-android-sdk:6.0.1'
 }
