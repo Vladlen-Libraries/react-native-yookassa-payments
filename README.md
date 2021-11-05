@@ -88,3 +88,27 @@ target 'YourAppName' do
     - Copy everything from ios/yookassa-payments-swift-6.0.0/YooKassaPayments/Public/Resources/ru.lproj/Localizable.strings
     - In your Xcode project => File => New File => Strings File => Localizable.strings => Open new created Localizable.strings and paste all copy strings
     - After pasting strings look at Xcode right side and find a Localization menu => Choose Russian language 
+
+### P.S
+If you see errors in Xcode Project like this:
+```
+Failed to build module 'MoneyAuth' from its module interface...
+Compipiling for iOS 10.0, but module 'FunctiionalSwift' has a minimum deployment target iOS 11.0...
+```
+You can resolve it by adding post_install in your Podfile:
+```
+post_install do |installer|
+  installer.pods_project.targets.each do |target|
+  target.build_configurations.each do |config|
+  if target.name == 'FunctionalSwift' || target.name == 'YooMoneyCoreApi'
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+  else
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+                end
+            end
+        end
+    end
+end
+```
+https://github.com/yoomoney/yookassa-payments-swift/issues/93
+
