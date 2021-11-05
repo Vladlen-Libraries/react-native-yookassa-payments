@@ -94,6 +94,7 @@ If you see errors in Xcode Project like this:
 ```
 Failed to build module 'MoneyAuth' from its module interface...
 Compipiling for iOS 10.0, but module 'FunctiionalSwift' has a minimum deployment target iOS 11.0...
+Typedef redefinition with different types ('uint8_t' (aka 'unsigned char'))...
 ```
 You can resolve it by adding post_install in your Podfile:
 ```
@@ -103,7 +104,11 @@ post_install do |installer|
   if target.name == 'FunctionalSwift' || target.name == 'YooMoneyCoreApi'
     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
   else
+  if target.name == 'RCT-Folly'
+    config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '9.0'
+  else
     config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '12.0'
+                    end
                 end
             end
         end
