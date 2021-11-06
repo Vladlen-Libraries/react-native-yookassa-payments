@@ -3,7 +3,7 @@
 ###### iOS NATIVE SDK - 6.0.0
 ###### Android NATIVE SDK - 6.0.1
 
-`npm install git+https://gitlab.com/getgain-public/libs/react-native-yookassa-payments.git --save`
+`npm install react-native-yookassa-payments --save`
 
 ### Android installation:
 
