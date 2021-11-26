@@ -8,9 +8,7 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
     var confirmCallback: RCTResponseSenderBlock?
     var viewController: UIViewController?
 
-    func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {
-
-    }
+    func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {}
 
     @objc(cancel)
     func dismiss() {
@@ -104,5 +102,6 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
             confirmCallback = nil
         }
         viewController?.dismiss(animated: true)
+        self.dismiss()
     }
 }
