@@ -8,7 +8,9 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
     var confirmCallback: RCTResponseSenderBlock?
     var viewController: UIViewController?
 
-    func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {}
+    func didSuccessfullyConfirmation(paymentMethodType: PaymentMethodType) {
+
+    }
 
     @objc(cancel)
     func dismiss() {
@@ -56,12 +58,14 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
                                               amount: amount,
                                               tokenizationSettings: tokenizationSettings,
                                               testModeSettings: (info["test"] != nil) ? testModeSettings : nil,
-                                              cardScanning: CardScannerProvider(), applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
-                                              savePaymentMethod: .userSelects)
-        let inputData: TokenizationFlow = .tokenization(tokenizationModuleInputData)
-        viewController = TokenizationAssembly.makeModule(inputData: inputData, moduleOutput: self)
+                                              cardScanning: CardScannerProvider(),
+                                              applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
+                                              savePaymentMethod: .userSelects
+                                              )
 
         DispatchQueue.main.async {
+            let inputData: TokenizationFlow = .tokenization(tokenizationModuleInputData)
+            self.viewController = TokenizationAssembly.makeModule(inputData: inputData, moduleOutput: self)
             let rootViewController = UIApplication.shared.keyWindow!.rootViewController!
             rootViewController.present(self.viewController!, animated: true, completion: nil)
         }
