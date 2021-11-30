@@ -55,7 +55,10 @@ public class YooKassaModule extends ReactContextBaseJavaModule {
         String subtitle = obj.getString("purchase_description");
         String clientApplicationKey = obj.getString("api_key");
         String shopId = String.valueOf(obj.getDouble("shop_id"));
+        String customReturnUrl = obj.getString("returnUrl");
+        String gatewayId = null;
         ReadableArray paymentTypes = obj.getArray("payment_types");
+
 
         final Set<PaymentMethodType> paymentMethodTypes = getPaymentMethodTypes(paymentTypes);
 
@@ -66,7 +69,9 @@ public class YooKassaModule extends ReactContextBaseJavaModule {
                 clientApplicationKey,
                 shopId,
                 settings.getSavePaymentMethod(),
-                paymentMethodTypes
+                paymentMethodTypes,
+                gatewayId,
+                customReturnUrl
         );
 
         Intent intent = Checkout.createTokenizeIntent(this.reactContext, paymentParameters);
