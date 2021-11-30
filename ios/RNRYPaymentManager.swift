@@ -52,16 +52,17 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
 
         let amount = Amount(value: amountValue.decimalValue, currency: .rub) // rub
         let tokenizationModuleInputData =
-                  TokenizationModuleInputData(clientApplicationKey: clientApplicationKey,
-                                              shopName: shopName,
-                                              purchaseDescription: purchaseDescription,
-                                              amount: amount,
-                                              tokenizationSettings: tokenizationSettings,
-                                              testModeSettings: (info["test"] != nil) ? testModeSettings : nil,
-                                              cardScanning: CardScannerProvider(),
-                                              applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
-                                              savePaymentMethod: .userSelects
-                                              )
+            TokenizationModuleInputData(clientApplicationKey: clientApplicationKey,
+            shopName: shopName,
+            purchaseDescription: purchaseDescription,
+            amount: amount,
+            tokenizationSettings: tokenizationSettings,
+            testModeSettings: (info["test"] != nil) ? testModeSettings : nil,
+            cardScanning: CardScannerProvider(),
+            applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
+            returnUrl: (info["returnUrl"] != nil) ? info["returnUrl"] as? String : nil,
+            savePaymentMethod: .userSelects
+        )
 
         DispatchQueue.main.async {
             let inputData: TokenizationFlow = .tokenization(tokenizationModuleInputData)

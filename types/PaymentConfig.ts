@@ -9,4 +9,5 @@ export interface PaymentConfig {
   api_key: string;
   test?: number;
   applePayMerchantIdentifier?: string;
+  returnUrl?: string;
 }

@@ -12,6 +12,7 @@ export function pay(info) {
     payment_types: info["payment_types"],
     test: info["test"],
     applePayMerchantIdentifier: info["applePayMerchantIdentifier"],
+    returnUrl: info["returnUrl"],
   };
   return new Promise((resolve, reject) => {
     RNRYPay.pay(paymentConfig, (token, type, error) => {
