@@ -117,3 +117,5 @@ end
 ```
 https://github.com/yoomoney/yookassa-payments-swift/issues/93
 
+For using your custom realization of 3DSecure confirmation, specify returnUrl: string for redirect to your link. Not use confirmPayment() method with returnUrl.  
+
