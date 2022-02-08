@@ -1,6 +1,6 @@
 # react-native-yookassa-payments
 
-###### iOS NATIVE SDK - 6.0.0
+###### iOS NATIVE SDK - 6.1.1
 ###### Android NATIVE SDK - 6.0.1
 
 `npm install react-native-yookassa-payments --save`
@@ -75,7 +75,7 @@ target 'YourAppName' do
   pod 'YooKassaPayments',
       :build_type => :dynamic_framework,
       :git => 'https://github.com/yoomoney/yookassa-payments-swift.git',
-      :tag => '6.0.0'
+      :tag => '6.1.1'
   end
 ```
 
@@ -85,9 +85,13 @@ target 'YourAppName' do
 5.  `pod install`
 6. (Optional) Russian Localization
     - In your Xcode project => Info => Localization => Click "+" => Add Russian language
-    - Copy everything from ios/yookassa-payments-swift-6.0.0/YooKassaPayments/Public/Resources/ru.lproj/Localizable.strings
+    - Copy everything from ios/yookassa-payments-swift-6.1.1/YooKassaPayments/Public/Resources/ru.lproj/Localizable.strings
     - In your Xcode project => File => New File => Strings File => Localizable.strings => Open new created Localizable.strings and paste all copy strings
     - After pasting strings look at Xcode right side and find a Localization menu => Choose Russian language 
+
+### Custom 3DSecure confirmation 
+For using your custom realization of 3DSecure confirmation, specify returnUrl: string for redirect to your link. Not use confirmPayment() method with returnUrl. 
+
 
 ### P.S
 If you see errors in Xcode Project like this:
@@ -116,6 +120,4 @@ post_install do |installer|
 end
 ```
 https://github.com/yoomoney/yookassa-payments-swift/issues/93
-
-For using your custom realization of 3DSecure confirmation, specify returnUrl: string for redirect to your link. Not use confirmPayment() method with returnUrl.  
 
