@@ -80,7 +80,7 @@ target 'YourAppName' do
 ```
 
 2.  Add TMXProfiling.xcframework and TMXProfilingConnections.xcframework to ios/Frameworks using Finder or other file manager 
-3.  Add TMXProfiling.xcframework and TMXProfilingConnections.xcframework to Frameworks, Libraries, and Embedded Content in Xcode Project
+3.  Add TMXProfiling.xcframework, TMXProfilingConnections.xcframework, libCardIO.a to Frameworks, Libraries, and Embedded Content in Xcode Project
 4.  Add Foundation.swift using Xcode in root folder (ios/Foundation.swift) and select "Сreate Bridging Header"
 5.  `pod install`
 6. (Optional) Russian Localization
