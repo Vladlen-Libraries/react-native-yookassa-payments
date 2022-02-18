@@ -1,7 +1,7 @@
 # react-native-yookassa-payments
 
 ###### iOS NATIVE SDK - 6.1.1
-###### Android NATIVE SDK - 6.0.1
+###### Android NATIVE SDK - 6.4.0
 
 `npm install react-native-yookassa-payments --save`
 
@@ -18,15 +18,7 @@ allprojects {
 }
 ```
 
-3.  Add folowing lines in dependencies `android/app/build.gradle`
-
-```java
-dependencies {
-    implementation "ru.yoomoney.sdk.auth:auth:1.2.8"
-}
-```
-
-4.  In `android/app/build.gradle` file add next dependency
+3. In `android/app/build.gradle` file add next dependency
 
 ```java
 dependencies {
@@ -34,7 +26,7 @@ dependencies {
 }
 ```
 
-5.  Also important to add your app scheme. In `android/app/build.gradle` add following lines:
+4. Also important to add your app scheme. In `android/app/build.gradle` add following lines:
 
 ```java
 android {
@@ -44,7 +36,7 @@ android {
 }
 ```
 
-6. Add this in AndroidManifest.xml for card scanning work
+5. Add this in AndroidManifest.xml for card scanning work
 
 ```java
 <uses-feature android:name="android.hardware.camera.autofocus" android:required="false" />
