@@ -1,5 +1,6 @@
 {
   "name": "react-native-yookassa-payments",
+  "homepage": "https://gitlab.com/getgain-public/libs/react-native-yookassa-payments",
   "version": "1.0.7",
   "description": "",
   "main": "index.js",
