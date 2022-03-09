@@ -24,6 +24,8 @@ import ru.yoomoney.sdk.kassa.payments.Checkout;
 import ru.yoomoney.sdk.kassa.payments.checkoutParameters.PaymentParameters;
 import ru.yoomoney.sdk.kassa.payments.TokenizationResult;
 import ru.yoomoney.sdk.kassa.payments.checkoutParameters.PaymentMethodType;
+import ru.yoomoney.sdk.kassa.payments.checkoutParameters.TestParameters;
+import ru.yoomoney.sdk.kassa.payments.checkoutParameters.MockConfiguration;
 
 public class YooKassaModule extends ReactContextBaseJavaModule {
 
@@ -57,10 +59,14 @@ public class YooKassaModule extends ReactContextBaseJavaModule {
         String shopId = String.valueOf(obj.getDouble("shop_id"));
         String customReturnUrl = obj.getString("returnUrl");
         String gatewayId = null;
+        String testMode = obj.getDouble("testMode");
         ReadableArray paymentTypes = obj.getArray("payment_types");
 
 
         final Set<PaymentMethodType> paymentMethodTypes = getPaymentMethodTypes(paymentTypes);
+
+        TestParameters testParameters = new TestParameters(true, true,
+                    new MockConfiguration(false, true, 5, new Amount(BigDecimal.TEN, Currency.getInstance("RUB"))));
 
         PaymentParameters paymentParameters = new PaymentParameters(
                 new Amount(new BigDecimal(amount), Currency.getInstance("RUB")),
@@ -74,8 +80,13 @@ public class YooKassaModule extends ReactContextBaseJavaModule {
                 customReturnUrl
         );
 
-        Intent intent = Checkout.createTokenizeIntent(this.reactContext, paymentParameters);
-        getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_TOKENIZE);
+        if (testMode > 0) {
+            Intent intent = Checkout.createTokenizeIntent(this.reactContext, paymentParameters, testParameters);
+            getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_TOKENIZE);
+        } else {
+            Intent intent = Checkout.createTokenizeIntent(this.reactContext, paymentParameters);
+            getCurrentActivity().startActivityForResult(intent, REQUEST_CODE_TOKENIZE);
+        }
     }
 
     @ReactMethod
