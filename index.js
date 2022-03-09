@@ -13,6 +13,7 @@ export function pay(info) {
     test: info["test"],
     applePayMerchantIdentifier: info["applePayMerchantIdentifier"],
     returnUrl: info["returnUrl"],
+    testMode: info["testMode"] ? info["testMode"] : 0,
   };
   return new Promise((resolve, reject) => {
     RNRYPay.pay(paymentConfig, (token, type, error) => {
