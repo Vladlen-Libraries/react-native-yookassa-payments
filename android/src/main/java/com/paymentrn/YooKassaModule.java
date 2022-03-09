@@ -59,7 +59,7 @@ public class YooKassaModule extends ReactContextBaseJavaModule {
         String shopId = String.valueOf(obj.getDouble("shop_id"));
         String customReturnUrl = obj.getString("returnUrl");
         String gatewayId = null;
-        String testMode = obj.getDouble("testMode");
+        Double testMode = obj.getDouble("testMode");
         ReadableArray paymentTypes = obj.getArray("payment_types");
 
 

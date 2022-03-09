@@ -33,7 +33,8 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
             let amountValue = info["amount"] as? NSNumber,
             let shopName = info["shop_name"] as? String,
             let purchaseDescription = info["purchase_description"] as? String,
-            let paymentTypes = info["payment_types"] as? [String]
+            let paymentTypes = info["payment_types"] as? [String],
+            let testMode = info["testMode"] as? Int
             else {
                 return
             }
@@ -43,10 +44,12 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
                 paymentMethodTypes.insert(PaymentMethodTypes(rawValue: [payType]))
             }
         }
-        let testModeSettings = TestModeSettings(paymentAuthorizationPassed: false,
-                                                cardsCount: 2,
-                                                charge: Amount(value: 100, currency: .rub),
-                                                enablePaymentError: false)
+        let testModeSettings = TestModeSettings(
+            paymentAuthorizationPassed: false,
+            cardsCount: 2,
+            charge: Amount(value: 1, currency: .rub),
+            enablePaymentError: false
+        )
 
         let tokenizationSettings = TokenizationSettings(paymentMethodTypes: paymentMethodTypes)
 
@@ -57,7 +60,7 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
             purchaseDescription: purchaseDescription,
             amount: amount,
             tokenizationSettings: tokenizationSettings,
-            testModeSettings: (info["test"] != nil) ? testModeSettings : nil,
+            testModeSettings: (testMode > 0) ? testModeSettings : nil,
             cardScanning: CardScannerProvider(),
             applePayMerchantIdentifier: info["applePayMerchantIdentifier"] as? String,
             returnUrl: (info["returnUrl"] != nil) ? info["returnUrl"] as? String : nil,
