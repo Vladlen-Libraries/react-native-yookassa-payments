@@ -79,7 +79,25 @@ target 'YourAppName' do
     - In your Xcode project => Info => Localization => Click "+" => Add Russian language
     - Copy everything from ios/yookassa-payments-swift-6.1.1/YooKassaPayments/Public/Resources/ru.lproj/Localizable.strings
     - In your Xcode project => File => New File => Strings File => Localizable.strings => Open new created Localizable.strings and paste all copy strings
-    - After pasting strings look at Xcode right side and find a Localization menu => Choose Russian language 
+    - After pasting strings look at Xcode right side and find a Localization menu => Choose Russian language
+
+### Google Pay
+For testing Google Pay and approve Business Console screenshots
+```
+await YooPayment.pay({
+   //add this line
+   testMode: 1,    
+});
+```
+
+### Apple Pay
+Specify merchantId for apple pay integration
+```
+await YooPayment.pay({
+  //add this line
+  applePayMerchantIdentifier: "merchant.com.your_app_name" 
+});
+```
 
 ### Custom 3DSecure confirmation 
 For using your custom realization of 3DSecure confirmation, specify returnUrl: string for redirect to your link. Not use confirmPayment() method with returnUrl. 
