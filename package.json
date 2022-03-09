@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "publish_new_version": "npm version patch && npm publish"
+    "bump_version": "npm version patch",
+    "publish": "npm publish"
   },
   "keywords": [
     "react-native"
