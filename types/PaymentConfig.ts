@@ -7,7 +7,7 @@ export interface PaymentConfig {
   purchase_description: string;
   payment_types: PaymentType[];
   api_key: string;
-  test?: number;
   applePayMerchantIdentifier?: string;
   returnUrl?: string;
+  testMode?: number;
 }
