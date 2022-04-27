@@ -23,7 +23,7 @@ class RNRYPaymentManager: RCTViewManager, TokenizationModuleOutput {
     func confirmPayment(_ url: String, callbacker callback: @escaping RCTResponseSenderBlock) -> Void {
         guard let viewController = viewController as? TokenizationModuleInput else { return }
         confirmCallback = callback
-        viewController.start3dsProcess(requestUrl: url)
+        viewController.startConfirmationProcess(confirmationUrl: url, paymentMethodType: PaymentMethodType.bankCard)
     }
 
     @objc

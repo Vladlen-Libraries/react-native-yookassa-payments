@@ -8,7 +8,6 @@ Pod::Spec.new do |s|
                    DESC
   s.homepage     = "https://gitlab.com/getgain-public/libs/react-native-yookassa-payments.git"
   s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
   s.author             = { "author" => "author@domain.cn" }
   s.platform     = :ios, "10.0"
   s.source       = { :git => "https://gitlab.com/getgain-public/libs/react-native-yookassa-payments.git", :tag => "master" }

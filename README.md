@@ -1,6 +1,6 @@
 # react-native-yookassa-payments
 
-###### iOS NATIVE SDK - 6.1.1
+###### iOS NATIVE SDK - 6.7.0
 ###### Android NATIVE SDK - 6.4.0
 
 `npm install react-native-yookassa-payments --save`
@@ -48,12 +48,8 @@ android {
 1.  Change Podfile like this:
 
 ```
-source 'https://cdn.cocoapods.org/'
-source 'https://github.com/yoomoney-tech/cocoa-pod-specs.git'
-plugin 'cocoapods-user-defined-build-types',  {
-  verbose: true
-}
-enable_user_defined_build_types!
+source 'https://git.yoomoney.ru/scm/sdk/cocoa-pod-specs.git'
+source 'https://github.com/CocoaPods/Specs.git'
 
 platform :ios, '10.0'
 
@@ -66,16 +62,12 @@ target 'YourAppName' do
    
   pod 'YooKassaPayments',
       :build_type => :dynamic_framework,
-      :git => 'https://github.com/yoomoney/yookassa-payments-swift.git',
-      :tag => '6.1.1'
-  end
+      :git => 'https://git.yoomoney.ru/scm/sdk/yookassa-payments-swift.git',
+      :tag => '6.7.0'
 ```
-
-2.  Add TMXProfiling.xcframework and TMXProfilingConnections.xcframework to ios/Frameworks using Finder or other file manager 
-3.  Add TMXProfiling.xcframework, TMXProfilingConnections.xcframework, libCardIO.a to Frameworks, Libraries, and Embedded Content in Xcode Project
-4.  Add Foundation.swift using Xcode in root folder (ios/Foundation.swift) and select "Сreate Bridging Header"
-5.  `pod install`
-6. (Optional) Russian Localization
+2. Add Foundation.swift using Xcode in root folder (ios/Foundation.swift) and select "Сreate Bridging Header"
+3. `pod install`
+4. (Optional) Russian Localization
     - In your Xcode project => Info => Localization => Click "+" => Add Russian language
     - Copy everything from ios/yookassa-payments-swift-6.1.1/YooKassaPayments/Public/Resources/ru.lproj/Localizable.strings
     - In your Xcode project => File => New File => Strings File => Localizable.strings => Open new created Localizable.strings and paste all copy strings
