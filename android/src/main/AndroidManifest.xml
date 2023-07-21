@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android" package="com.paymentrn">
     <application>
-        <activity android:name=".scanner.ScanBankCardActivity" android:label="">
+        <activity android:name=".scanner.ScanBankCardActivity" android:label="" android:exported="true">
             <intent-filter>
                 <action android:name="ru.yoomoney.sdk.kassa.payments.action.SCAN_BANK_CARD"/>
             </intent-filter>
