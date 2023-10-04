@@ -1,5 +1,7 @@
 # react-native-yookassa-payments
 
+<a href="https://www.npmjs.com/package/react-native-yookassa-payments"><img src="https://github.com/npm/logos/blob/master/npm%20logo/classic/npm-2009.png" height="32" width="64" ></a>
+
 ###### iOS NATIVE SDK - 6.7.0
 ###### Android NATIVE SDK - 6.4.0
 
